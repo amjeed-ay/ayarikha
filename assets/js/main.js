@@ -1,9 +1,14 @@
-/**
-* Template Name: Personal - v2.4.0
-* Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
+
+function hideDisplay(id){
+  document.getElementById(id).style.display="none";
+}
+
+function returnDisplay(id){
+  document.getElementById(id).style.display="flex";
+}
+
+
 !(function($) {
   "use strict";
 
@@ -21,7 +26,7 @@
         }
 
         if (hash == '#header') {
-          // $('#header').removeClass('header-top');
+          returnDisplay("header2");
           $("section").removeClass('section-show');
           if ($('body').hasClass('mobile-nav-active')) {
             $('body').removeClass('mobile-nav-active');
@@ -29,12 +34,14 @@
             $('.mobile-nav-overly').fadeOut();
           }
           return;
+        }else{
+          
+          hideDisplay("header2");
+        
         }
 
         if (!$('#header').hasClass('header-top')) {
           $('#header').addClass('header-top');
-          $('#header2').removeClass('header-tops');
-          $('#header2').addClass('hide');
           setTimeout(function() {
             $("section").removeClass('section-show');
             $(hash).addClass('section-show');
@@ -66,7 +73,7 @@
     var initial_nav = window.location.hash;
     if ($(initial_nav).length) {
       $('#header').addClass('header-top');
-      
+     
       $('.nav-menu .active, .mobile-nav .active').removeClass('active');
       $('.nav-menu, .mobile-nav').find('a[href="' + initial_nav + '"]').parent('li').addClass('active');
       setTimeout(function() {
