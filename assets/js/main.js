@@ -1,12 +1,12 @@
 
+$(document).on('click','.searchbychar', function(event) {
+  event.preventDefault();
+  var target = "#" + this.getAttribute('data-target');
+  $('html, body').animate({
+      scrollTop: $(target).offset().top-120
+  }, 1000);
+});
 
-function hideDisplay(id){
-  document.getElementById(id).style.display="none";
-}
-
-function returnDisplay(id){
-  document.getElementById(id).style.display="flex";
-}
 
 
 !(function($) {
@@ -26,8 +26,8 @@ function returnDisplay(id){
         }
 
         if (hash == '#header') {
-          returnDisplay("header2");
-          $("section").removeClass('section-show');
+          // returnDisplay("header2");
+          $("div").removeClass('section-show');
           if ($('body').hasClass('mobile-nav-active')) {
             $('body').removeClass('mobile-nav-active');
             $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
@@ -36,7 +36,7 @@ function returnDisplay(id){
           return;
         }else{
           
-          hideDisplay("header2");
+          // hideDisplay("header2");
         
         }
 
